@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/html">
+<body>
+	<div>
+	
+		<h1>Tutti i nostri fotografi:</h1>
+				
+<h3 th:if="${role} == 'ADMIN'">
+
+    <a th:href="@{/fotografoForm}">AGGIUNGI FOTOGRAFO</a>
+    
+</h3>
+		
+
+		
+		<ul>
+			<li th:each="fotografo : ${fotografi}"> 
+				<a
+				th:href="@{'/fotografo/' + ${fotografo.nome}}"
+				th:text="${fotografo.nome}"> paolo </a>
+			</li>
+		</ul>
+		
+	</div>
+	
+	
+</body>
+</html>
