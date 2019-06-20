@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+<div align="center"><font size=10 color="red">Bentornato, my Admin <span th:utext="${username}"></span></font></div>
+
+<h4><a href="/fotografiAdmin">Gestisci Fotografi</a></h4>
+
+<h4><a href="/fotografiAdmin">Visualizza Richieste</a></h4>
+
+<h4><a href="/logout">Logout</a></h4>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/html">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+	<div>
+	    
+		<div align="center"><h1><span class="titolo"><font color="red">Tutti i nostri fotografi:</font></span></h1></div>
+
+
+	
+	
+		
+		<ul>
+			<h3>
+			<li th:each="fotografo : ${fotografi}">
+				<a
+				th:href="@{'/guest/fotografo/' + ${fotografo.id} }"
+				th:text="${fotografo.nome}"> paolo </a>
+			</li>
+			</h3>
+		
+		</ul>
+		
+	</div>
+	
+	
+</body>
+</html>

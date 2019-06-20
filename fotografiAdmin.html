@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/html">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+	<div>
+	
+		<font size=10 color="red">I nostri Fotografi</font>
+		
+		<ul>
+			<h3>
+			<li th:each="fotografo : ${fotografi}"> 
+				<a
+				th:href="@{'/fotografo/' + ${fotografo.id} }"
+				th:text="${fotografo.nome}"> paolo </a>
+			</li>
+			</h3>
+		</ul>
+
+
+	<font size=5 color="red">Aggiungiamo un Fotografo alla nostra comuntiy</font>
+	<form  th:action="@{/fotografo}" method="POST" th:object="${fotografo}">
+	
+		<table>
+			<tr>
+				<td>Nome:</td>
+				<td>  <input type="text" th:field="*{nome}" />  </td>
+				
+			</tr>
+			
+			<tr> 
+				<td>Cognome:</td>
+				<td> <input type="text" th:field="*{cognome}" /></td>
+				
+			</tr>
+			
+			<tr>
+				<td>
+					<button type="submit">Aggiungi Fotografo</button>
+				</td>
+			</tr>
+			
+		</table>
+		
+	</form>
+
+		
+	</div>
+	
+	
+</body>
+</html>
