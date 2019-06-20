@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/html">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" th:href="@{/css/main.css}">
+</head>
+<body>
+	<div>
+	
+		<font size=7 colore="red">Dettagli Fotografo</font>
+		
+		<div>
+		Nome: <span th:text= "${fotografo.nome}">    paolo    </span>
+		</div>
+		
+		<div>
+		Cognome: <span th:text= "${fotografo.cognome}">   merialdo   </span>
+		</div>
+	
+	
+	<font size=7 colore="red">Gli Album del Fotografo</font>
+		
+		<ul>
+			<li th:each="a : ${Albums}"> 
+				<a
+				th:href="@{'/fotografo/' + ${fotografo.id} + '/album/' + ${a.id}  }"
+				th:text="${a.nome}"> paolo </a>
+			</li>
+		</ul>
+	
+	
+		
+		 <h4><a  href="/fotografiAdmin"> Torna ai Fotografi </a></h4> 
+		
+	</div>
+	<div>
+		<font size=10 color="red">Inserisci  un album</font>
+	</div>
+		<form th:action=" @{'/fotografo/'+${fotografo.id}+'/album' }" method="POST" th:object="${album}">
+	
+		<table>
+			<tr>
+				<td>Nome:</td>
+				<td>  <input type="text" th:field="*{nome}" />  </td>
+				
+			</tr>
+			
+			<tr> 
+				<td>descrizione:</td>
+				<td> <input type="text" th:field="*{descrizione}" /></td>
+				
+			</tr>
+			
+			<tr>
+				<td>
+					<button type="submit">Crea album</button>
+				</td>
+			</tr>
+			
+		</table>
+		
+	</form>
+</body>
+</html>
